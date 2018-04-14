@@ -2,10 +2,10 @@
 
 class _hashing_{
 	public function get_hash($text){
-		$pecah_kata = str_split(strtolower($text));
-		$banyak = strlen($text);
+		$get_lower_string = str_split(strtolower($text));
+		$res_character = strlen($text);
 		$kata = $text;
-		$data_hash = array(
+		$hash_character = array(
 			"a" => "md2",
 			"b" => "md4",
 			"c" => "sha1",
@@ -33,14 +33,14 @@ class _hashing_{
 			"z" => "crc32b",
 			" " => "md5"
 		);
-		for ($i = 0; $i < $banyak ; $i++) {
-			if ($data_hash[$pecah_kata[$i]] == NULL) {
-				$kata = hash(md5, $kata);
+		for ($i = 0; $i < $res_character ; $i++) {
+			if ($hash_character[$get_lower_string[$i]] == NULL) {
+				$result = hash(md5, $kata);
 			}else{
-				$kata = hash($data_hash[$pecah_kata[$i]], $kata);
+				$result = hash($hash_character[$get_lower_string[$i]], $kata);
 			}
 		}
-		return $kata;
+		return $result;
 		// return hash($data_hash[$pecah_kata[0]], $text);
 	}
 }
